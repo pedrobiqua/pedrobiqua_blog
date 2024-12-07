@@ -25,7 +25,7 @@ permalink: /projects/
           </p>
         </div>
         <div class="card-footer">
-          <a href="{{ project.url }}">Read More</a>
+          <a href="{{ project.url | relative_url }}">Read More</a>
         </div>
       </div>
     {% endfor %}

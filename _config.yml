@@ -40,10 +40,10 @@ sass:
 collections:
   articles:
     output: true
-    permalink: "/pedrobiqua_blog/articles/:title/"
+    permalink: "/articles/:title/"
   projects:
     output: true
-    permalink: "/pedrobiqua_blog/projects/:title/"
+    permalink: "projects/:title/"
 
 
 # Exclude from processing.

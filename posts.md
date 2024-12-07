@@ -13,7 +13,7 @@ permalink: /posts/
         <div class="card-title">{{ post.title }}</div>
         <div class="card-date">{{ post.date | date: "%B %d, %Y" }}</div>
         <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-        <a href="{{ post.url }}">Read More</a>
+        <a href="{{ post.url | relative_url }}">Read More</a>
       </div>
     {% endfor %}
   {% else %}
