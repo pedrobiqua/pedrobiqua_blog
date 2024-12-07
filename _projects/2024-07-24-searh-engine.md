@@ -1,7 +1,7 @@
 ---
 title: "Search Engine"
-start_date: 2023-10-01
-end_date: 2024-10-01
+start_date: 2024-10-01
+end_date: 
 excerpt: "A library to run search engines with efficient ranking and indexing."
 layout: post
 ---
