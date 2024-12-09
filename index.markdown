@@ -5,27 +5,30 @@ permalink: /
 ---
 
 <style>
+  /* Estilo para a seção do perfil */
   .profile {
     display: flex;
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    gap: 40px; /* Espaçamento entre a imagem e o texto */
+    align-items: center;
+    gap: 40px;
   }
 
   .profile-photo img {
-    max-width: 200px; /* Define um tamanho máximo para a foto */
-    height: auto; /* Mantém a proporção da imagem */
-    border-radius: 50%; /* Faz a imagem ser redonda */
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
   }
 
   .profile-text {
-    flex: 1; /* Faz o texto ocupar o espaço restante */
+    flex: 1;
     text-align: justify;
   }
 
+  /* Adicionar espaçamento superior à seção de notícias */
   .news-section {
     margin-top: 40px;
   }
 
+  /* Estilo para os itens da notícia */
   .news-item {
     border: 1px solid #ddd;
     padding: 15px;
@@ -41,6 +44,28 @@ permalink: /
   .news-item a {
     text-decoration: none;
     color: inherit;
+  }
+
+  /* Media query para telas menores, como celulares */
+  @media (max-width: 768px) {
+    .profile {
+      flex-direction: column; /* Coloca os itens em uma coluna em telas menores */
+      align-items: flex-start; /* Alinha os itens à esquerda */
+      gap: 20px; /* Reduz o espaçamento entre a imagem e o texto */
+    }
+
+    .profile-photo img {
+      max-width: 150px; /* Reduz o tamanho da foto */
+    }
+
+    .profile-text {
+      text-align: left; /* Alinha o texto à esquerda */
+    }
+
+    /* Esconde a foto no celular */
+    .profile-photo {
+      display: none;
+    }
   }
 </style>
 
