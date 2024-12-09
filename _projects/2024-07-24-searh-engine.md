@@ -1,7 +1,7 @@
 ---
 title: "Search Engine"
 start_date: 2024-10-01
-end_date: 
+end_date:
 excerpt: "A library to run search engines with efficient ranking and indexing."
 layout: post
 ---
@@ -10,7 +10,12 @@ This project focuses on developing a library to implement search engines. The co
 
 The goal of the project is to create a reusable and adaptable tool that can be integrated into various search engines to improve indexing and ranking processes. By focusing on performance and scalability, the library aims to handle large datasets and provide accurate search results in real-time.
 
-[Link the GitHub repository to the directory](https://github.com/pedrobiqua/Search_Engine)
+<!-- Using card github -->
+<script src="https://tarptaeya.github.io/repo-card/repo-card.js"></script>
+<div class="repo-card" data-repo="pedrobiqua/Search_Engine"></div>
+<br>
+
+[Link the GitHub repository to the directory](https://github.com/pedrobiqua/Search_Engine){:target="_blank"}
 <br>
 <br>
 [Back to Projects]({{ site.baseurl }}/projects/)
