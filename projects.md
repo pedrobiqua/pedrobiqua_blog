@@ -11,7 +11,7 @@ permalink: /projects/
     {% for project in site.projects %}
       <div class="card">
         <div class="card-header">
-          <a href="{{ project.url }}">{{ project.title }}</a>
+          <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
         </div>
         <div class="card-body">
           <p>{{ project.excerpt | strip_html | truncatewords: 20 }}</p> <!-- Exibe uma descrição curta ou resumo do projeto -->
