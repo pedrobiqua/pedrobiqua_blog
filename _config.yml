@@ -26,6 +26,7 @@ baseurl: "/pedrobiqua_blog" # the subpath of your site, e.g. /blog
 url: "https://pedrobiqua.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 instagram_username: pedrobiqua.dev
 github_username:  pedrobiqua
+linkedin_username: pedrobiqua
 
 # Build settings
 theme: minima
