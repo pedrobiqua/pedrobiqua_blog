@@ -4,6 +4,20 @@ title: Posts
 permalink: /posts/
 ---
 
+<style>
+  .card-title {
+    font-size: 1.5em; /* Aumenta o tamanho do título */
+    font-weight: bold; /* Garante que o título seja em negrito */
+    margin-bottom: 10px; /* Dá um espaço abaixo do título */
+  }
+
+  .card-date {
+    font-size: 0.9em; /* Diminui o tamanho da data */
+    color: #777; /* Dá uma cor mais suave para a data */
+    margin-bottom: 10px; /* Dá um pequeno espaço abaixo da data */
+  }
+</style>
+
 # Posts
 
 <div class="cards-container">
