@@ -28,6 +28,12 @@ instagram_username: pedrobiqua.dev
 github_username:  pedrobiqua
 linkedin_username: pedrobiqua
 
+# MInhas variaveis
+author: "Pedro Bianchini de Quadros"
+author_photo: "/assets/images/Foto Rede Social.png"
+profession: "Researcher"
+generic_profession: "Computer Scientist"
+
 # Build settings
 theme: minima
 plugins:
