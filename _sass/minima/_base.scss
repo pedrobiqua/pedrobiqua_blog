@@ -191,6 +191,26 @@ pre {
   }
 }
 
+/**
+ * Wrapper para uma página específica
+ */
+ .custom-wrapper {
+  max-width: -webkit-calc(#{$content-width} + (#{$spacing-unit} * 5));
+  max-width:         calc(#{$content-width} + (#{$spacing-unit} * 5));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-unit * 2;  /* Aumentando o padding à direita */
+  padding-left: $spacing-unit * 2;   /* Aumentando o padding à esquerda */
+  @extend %clearfix;
+
+  @include media-query($on-laptop) {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+    padding-right: $spacing-unit * 1;  /* Ajustando padding para a versão menor de tela */
+    padding-left: $spacing-unit * 1;   /* Ajustando padding para a versão menor de tela */
+  }
+}
+
 
 
 /**
@@ -303,6 +323,73 @@ $card-footer-color: #999;
     font-size: 0.875rem;
     padding: 15px;
     background-color: #fafafa;
+  }
+}
+
+/* Estilo para a seção do perfil */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  .profile-photo {
+    img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 50%;
+    }
+  }
+
+  .profile-text {
+    flex: 1;
+    text-align: justify;
+  }
+}
+
+/* Adicionar espaçamento superior à seção de notícias */
+.news-section {
+  margin-top: 40px;
+}
+
+/* Estilo para os itens da notícia */
+.news-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* Media query para telas menores, como celulares */
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column; /* Coloca os itens em uma coluna em telas menores */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    gap: 20px; /* Reduz o espaçamento entre a imagem e o texto */
+
+    .profile-photo {
+      img {
+        max-width: 150px; /* Reduz o tamanho da foto */
+      }
+    }
+
+    .profile-text {
+      text-align: left; /* Alinha o texto à esquerda */
+    }
+
+    /* Esconde a foto no celular */
+    .profile-photo {
+      display: none;
+    }
   }
 }
 

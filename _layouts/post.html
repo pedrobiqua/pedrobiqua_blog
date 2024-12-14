@@ -1,0 +1,218 @@
+---
+layout: default
+---
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <style>
+    .post-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .post-nav-item {
+      width: 45%;
+    }
+
+    .card {
+      background: #f9f9f9;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    .post-nav-item a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .post-nav-item a:hover .card {
+      background: #e7e7e7;
+    }
+
+    /* Estilo para a foto de perfil */
+    .profile-photo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-photo img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+
+    .profile-photo img.default {
+      content: "/assets/images/user_generic.png"; /* Imagem genérica */
+    }
+
+    .author-info {
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    .author-info a {
+      color: #0073b1; /* Cor do LinkedIn */
+      text-decoration: none;
+    }
+
+    .author-info a.github {
+      color: #333; /* Cor do GitHub */
+    }
+
+    .author-info a:hover {
+      text-decoration: underline;
+    }
+
+    .profession {
+      font-size: 0.9em;
+      color: #777;
+      margin-top: 5px;
+    }
+    ul.social-icons {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.social-icons li {
+      margin-right: 1px; /* Espaço entre os ícones */
+      margin-top: 3px;
+    }
+
+    ul.social-icons li a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    ul.social-icons li svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 1px; /* Espaço entre o ícone e o nome */
+    }
+
+    /* Estilo para o tempo de leitura */
+    .reading-time {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+  </style>
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+    </p>
+  </header>
+
+  <!-- Foto de perfil (se existir) -->
+  <div class="profile-photo">
+    {% if site.author_photo %}
+      <img src="{{ site.author_photo | relative_url }}" alt="{{ site.author }}'s photo">
+    {% else %}
+      <img class="default" alt="Generic profile photo">
+    {% endif %}
+    <div class="author-info">
+      <strong>{{ site.author }}</strong><br>
+      <div class="profession">{{ site.profession | default: "Computer Scientist" }}</div>
+
+      <ul class="social-icons">
+        {%- if site.dribbble_username -%}<li><a href="https://dribbble.com/{{ site.dribbble_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#dribbble' | relative_url }}"></use></svg></a></li>{%- endif -%}
+        {%- if site.facebook_username -%}<li><a href="https://www.facebook.com/{{ site.facebook_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#facebook' | relative_url }}"></use></svg></a></li>{%- endif -%}
+        {%- if site.flickr_username -%}<li><a href="https://www.flickr.com/photos/{{ site.flickr_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#flickr' | relative_url }}"></use></svg></a></li>{%- endif -%}
+        {%- if site.github_username -%}<li><a href="https://github.com/{{ site.github_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use></svg></a></li>{%- endif -%}
+        {%- if site.instagram_username -%}<li><a href="https://instagram.com/{{ site.instagram_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#instagram' | relative_url }}"></use></svg></a></li>{%- endif -%}
+        {%- if site.linkedin_username -%}<li><a href="https://www.linkedin.com/in/{{ site.linkedin_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg></a></li>{%- endif -%}
+        {%- if site.pinterest_username -%}<li><a href="https://www.pinterest.com/{{ site.pinterest_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#pinterest' | relative_url }}"></use></svg></a></li>{%- endif -%}
+        {%- for mst in site.mastodon -%}{%- if mst.username and mst.instance -%}<li><a href="https://{{ mst.instance| cgi_escape | escape}}/@{{mst.username}}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#mastodon' | relative_url }}"></use></svg></a></li>{%- endif -%}{%- endfor -%}
+        {%- if site.twitter_username -%}<li><a href="https://www.twitter.com/{{ site.twitter_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#twitter' | relative_url }}"></use></svg></a></li>{%- endif -%}
+        {%- if site.youtube_username -%}<li><a href="https://youtube.com/{{ site.youtube_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#youtube' | relative_url }}"></use></svg></a></li>{%- endif -%}
+        {%- if site.googleplus_username -%}<li><a href="https://plus.google.com/{{ site.googleplus_username| escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#googleplus' | relative_url }}"></use></svg></a></li>{%- endif -%}
+        {%- if site.rss -%}<li><a href="{{ 'feed.xml' | relative_url }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use></svg> <span>{{ site.rss | escape }}</span></a></li>{%- endif -%}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tempo de leitura -->
+  <div class="reading-time">
+    {% assign word_count = page.content | number_of_words %}
+    {% assign reading_time = word_count | divided_by: 200 %}
+    {% assign rounded_reading_time = reading_time | round %}
+    <span>{{ rounded_reading_time }} min reading time</span>
+  </div>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <!-- Comentários -->
+  <script src="https://giscus.app/client.js"
+          data-repo="pedrobiqua/pedrobiqua_blog"
+          data-repo-id="R_kgDONaGelg"
+          data-category="Announcements"
+          data-category-id="DIC_kwDONaGels4ClOjm"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="pt"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <!-- Navegação dos Posts -->
+  <div class="post-navigation">
+    <div class="post-nav-item">
+      {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}" class="previous-post-card">
+          <div class="card">
+            <h3>Older Post</h3>
+            <p>{{ page.previous.title }}</p>
+            <p>{{ page.previous.date | date: "%B %d, %Y" }}</p>
+          </div>
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="post-nav-item">
+      {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}" class="next-post-card">
+          <div class="card">
+            <h3>Newer Post</h3>
+            <p>{{ page.next.title }}</p>
+            <p>{{ page.next.date | date: "%B %d, %Y" }}</p>
+          </div>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

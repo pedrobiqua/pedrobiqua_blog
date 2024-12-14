@@ -14,10 +14,15 @@
             {%- else -%}
               {{ site.title | escape }}
             {%- endif -%}
-            </li>
-            {%- if site.email -%}
+          </li>
+          {%- if site.email -%}
             <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
+          {%- endif -%}
+          <br>
+          <li class="p-name">
+            <p>&copy; {{ site.time | date: "%Y" }} {{ site.author | escape }}. All rights reserved.<br>
+            Developed with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.</p>
+          </li>
         </ul>
       </div>
 

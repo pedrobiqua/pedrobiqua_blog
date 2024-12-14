@@ -1,0 +1,109 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <style>
+    .section-title {
+        font-size: 1.5em;   /* Ajusta o tamanho da fonte */
+        font-weight: bold;  /* Deixa o título em negrito */
+        color: #333;        /* Cor do título */
+        margin-bottom: 20px; /* Espaço abaixo do título */
+    }
+
+    .post-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .post-nav-item {
+      width: 45%;
+    }
+
+    .card {
+      background: #f9f9f9;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    .post-nav-item a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .post-nav-item a:hover .card {
+      background: #e7e7e7;
+    }
+  </style>
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <!-- Navegação dos Artigos -->
+<h3 class="section-title">Explore Other Articles</h3>
+<div class="post-navigation">
+  <div class="post-nav-item">
+    {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}" class="previous-post-card">
+        <div class="card">
+          <h3>Older Article</h3>
+          <p>{{ page.previous.title }}</p>
+          <p>{{ page.previous.date | date: "%B %d, %Y" }}</p>
+        </div>
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="post-nav-item">
+    {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}" class="next-post-card">
+        <div class="card">
+          <h3>Newer Article</h3>
+          <p>{{ page.next.title }}</p>
+          <p>{{ page.next.date | date: "%B %d, %Y" }}</p>
+        </div>
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% unless page.previous or page.next %}
+  <div class="card">
+    <h3>Explore Other Articles</h3>
+    <p>No older or newer articles available.</p>
+  </div>
+{% endunless %}
+
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
