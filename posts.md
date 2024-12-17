@@ -82,6 +82,35 @@ permalink: /posts/
   .post-item a {
     cursor: pointer;
   }
+
+  /* Ajustes para dispositivos móveis */
+  @media screen and (max-width: 768px) {
+    .posts-container {
+      flex-direction: column; /* Altera para coluna em telas pequenas */
+    }
+
+    .posts-list {
+      width: 100%; /* A lista ocupa toda a largura */
+      margin-bottom: 20px; /* Adiciona um espaço entre a lista e o preview */
+    }
+
+    .post-item {
+      font-size: 1em; /* Diminui o tamanho da fonte na lista */
+    }
+
+    .post-preview {
+      width: 100%; /* O painel de preview ocupa toda a largura */
+      padding-left: 0; /* Remove o padding à esquerda */
+    }
+
+    .post-preview-title {
+      font-size: 1.8em; /* Diminui o tamanho do título do preview */
+    }
+
+    .post-preview-excerpt {
+      font-size: 1.1em; /* Diminui o tamanho do resumo */
+    }
+  }
 </style>
 
 # All Posts
