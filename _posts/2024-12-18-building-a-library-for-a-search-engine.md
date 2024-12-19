@@ -121,8 +121,5 @@ Here are some key references that have been guiding my project:
 
 I am still in the early stages of the project. Some steps have already been completed, but they still need polishing and better organization. I am very excited to develop it and also for other programmers to contribute to the project in the future. I hope this tool will help in research about simpler search engines, providing a solid foundation for studies and improvements in the field.
 
-Keep learning, **_Pedro_;)**
-
----
-
-Agora o texto está com as traduções feitas, mantendo intacto o conteúdo em inglês.
+Keep learning, <br>
+**_Pedro_;)**
